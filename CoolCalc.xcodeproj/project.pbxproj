@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		8077968C26E292F6008F4622 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8077968B26E292F6008F4622 /* AppDelegate.swift */; };
 		8077968E26E292F6008F4622 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8077968D26E292F6008F4622 /* SceneDelegate.swift */; };
-		8077969026E292F6008F4622 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8077968F26E292F6008F4622 /* ViewController.swift */; };
+		8077969026E292F6008F4622 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8077968F26E292F6008F4622 /* CalculatorViewController.swift */; };
 		8077969326E292F6008F4622 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8077969126E292F6008F4622 /* Main.storyboard */; };
 		8077969526E292F9008F4622 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8077969426E292F9008F4622 /* Assets.xcassets */; };
 		8077969826E292F9008F4622 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8077969626E292F9008F4622 /* LaunchScreen.storyboard */; };
 		807796A326E292FA008F4622 /* CoolCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807796A226E292FA008F4622 /* CoolCalcTests.swift */; };
 		807796AE26E292FA008F4622 /* CoolCalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807796AD26E292FA008F4622 /* CoolCalcUITests.swift */; };
+		807796BF26E2993F008F4622 /* RoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807796BE26E2993F008F4622 /* RoundCornerButton.swift */; };
+		80F278CC26E333AA009ED44A /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F278CB26E333A9009ED44A /* Operation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,7 @@
 		8077968826E292F6008F4622 /* CoolCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8077968B26E292F6008F4622 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8077968D26E292F6008F4622 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8077968F26E292F6008F4622 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8077968F26E292F6008F4622 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		8077969226E292F6008F4622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8077969426E292F9008F4622 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8077969726E292F9008F4622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		807796A926E292FA008F4622 /* CoolCalcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolCalcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		807796AD26E292FA008F4622 /* CoolCalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolCalcUITests.swift; sourceTree = "<group>"; };
 		807796AF26E292FA008F4622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		807796BE26E2993F008F4622 /* RoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerButton.swift; sourceTree = "<group>"; };
+		80F278CB26E333A9009ED44A /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +103,11 @@
 		8077968A26E292F6008F4622 /* CoolCalc */ = {
 			isa = PBXGroup;
 			children = (
+				807796BC26E298EA008F4622 /* View */,
+				807796BD26E298F0008F4622 /* Controller */,
+				807796BB26E298E3008F4622 /* Model */,
 				8077968B26E292F6008F4622 /* AppDelegate.swift */,
 				8077968D26E292F6008F4622 /* SceneDelegate.swift */,
-				8077968F26E292F6008F4622 /* ViewController.swift */,
 				8077969126E292F6008F4622 /* Main.storyboard */,
 				8077969426E292F9008F4622 /* Assets.xcassets */,
 				8077969626E292F9008F4622 /* LaunchScreen.storyboard */,
@@ -126,6 +132,30 @@
 				807796AF26E292FA008F4622 /* Info.plist */,
 			);
 			path = CoolCalcUITests;
+			sourceTree = "<group>";
+		};
+		807796BB26E298E3008F4622 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				80F278CB26E333A9009ED44A /* Operation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		807796BC26E298EA008F4622 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				807796BE26E2993F008F4622 /* RoundCornerButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		807796BD26E298F0008F4622 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8077968F26E292F6008F4622 /* CalculatorViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +288,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8077969026E292F6008F4622 /* ViewController.swift in Sources */,
+				8077969026E292F6008F4622 /* CalculatorViewController.swift in Sources */,
 				8077968C26E292F6008F4622 /* AppDelegate.swift in Sources */,
 				8077968E26E292F6008F4622 /* SceneDelegate.swift in Sources */,
+				80F278CC26E333AA009ED44A /* Operation.swift in Sources */,
+				807796BF26E2993F008F4622 /* RoundCornerButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

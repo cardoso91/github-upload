@@ -1,24 +1,509 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calculator View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalculatorViewController" customModule="CoolCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ohF-SK-NSh">
+                                <rect key="frame" x="73" y="127" width="666" height="207"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="C75-zf-5JK">
+                                        <rect key="frame" x="0.0" y="0.0" width="666" height="35"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erf-zf-py6" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="Pii-oD-zpp"/>
+                                                    <constraint firstAttribute="width" constant="150" id="deq-9K-qTJ"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="eP3-Pw-DwT"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="udD-of-79h"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="C">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="Pii-oD-zpp"/>
+                                                        <exclude reference="deq-9K-qTJ"/>
+                                                        <exclude reference="eP3-Pw-DwT"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="Pii-oD-zpp"/>
+                                                        <exclude reference="udD-of-79h"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact-widthClass=regular">
+                                                    <mask key="constraints">
+                                                        <include reference="deq-9K-qTJ"/>
+                                                        <include reference="eP3-Pw-DwT"/>
+                                                        <exclude reference="udD-of-79h"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="clearOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fqN-pI-KXJ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvo-0H-gyY" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="169" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="+/-">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="plusMinusOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9vs-9h-w54"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gm-eS-7Lt" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="338" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="%">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="percentageOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q0P-kj-JsA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XI5-cr-8FV" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="507" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="35"/>
+                                                <state key="normal" title="/">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="divisionOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fGu-g4-zVm"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cva-i0-se8">
+                                        <rect key="frame" x="0.0" y="43" width="666" height="35"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1Q-Ky-Ykn" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" red="0.1017271199" green="0.1017271199" blue="0.1017271199" alpha="0.75055416689999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="JnU-Wf-Dms"/>
+                                                    <constraint firstAttribute="width" constant="150" id="MjV-WS-oAK"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="TWw-kS-R2y"/>
+                                                    <constraint firstAttribute="height" constant="35" id="iKd-4T-oSa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="1">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="JnU-Wf-Dms"/>
+                                                        <exclude reference="MjV-WS-oAK"/>
+                                                        <exclude reference="iKd-4T-oSa"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <exclude reference="TWw-kS-R2y"/>
+                                                        <include reference="iKd-4T-oSa"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact-widthClass=regular">
+                                                    <mask key="constraints">
+                                                        <include reference="JnU-Wf-Dms"/>
+                                                        <include reference="MjV-WS-oAK"/>
+                                                        <exclude reference="TWw-kS-R2y"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="printOneOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hre-FR-YQY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fP8-zW-fVV" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="169" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" red="0.1017271199" green="0.1017271199" blue="0.1017271199" alpha="0.75055416689999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="2">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="printTwoOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ksf-Dm-2Xf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZN5-Sd-w5n" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="338" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" red="0.1017271199" green="0.1017271199" blue="0.1017271199" alpha="0.75055416689999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="3">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="printThreeOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vma-0O-dli"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99e-kK-ZSt" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="507" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="35"/>
+                                                <state key="normal" title="*">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="multiplicationOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WIn-ap-sAf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="l7M-Ej-wG5">
+                                        <rect key="frame" x="0.0" y="86" width="666" height="35"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ErB-GG-VlI" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" red="0.1017271199" green="0.1017271199" blue="0.1017271199" alpha="0.75055416689999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="2pS-hm-0nm"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="5GR-HC-ht6"/>
+                                                    <constraint firstAttribute="height" constant="35" id="XpS-02-whS"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="d1y-bI-Dde"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="4">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="2pS-hm-0nm"/>
+                                                        <exclude reference="XpS-02-whS"/>
+                                                        <exclude reference="d1y-bI-Dde"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <exclude reference="5GR-HC-ht6"/>
+                                                        <include reference="XpS-02-whS"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact-widthClass=regular">
+                                                    <mask key="constraints">
+                                                        <include reference="2pS-hm-0nm"/>
+                                                        <exclude reference="5GR-HC-ht6"/>
+                                                        <include reference="d1y-bI-Dde"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="printFourOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hr5-oy-L8i"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lle-O6-olZ" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="169" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" red="0.1017271199" green="0.1017271199" blue="0.1017271199" alpha="0.75055416689999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="5">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="printFiveOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gq4-CB-8sG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpi-Cd-cMy" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="338" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" red="0.1017271199" green="0.1017271199" blue="0.1017271199" alpha="0.75055416689999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="6">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="printSixOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c74-Y9-Kgq"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vw6-Kc-R2v" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="507" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="35"/>
+                                                <state key="normal" title="-">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="substractionOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WvA-0b-ZPX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0an-V7-dO5">
+                                        <rect key="frame" x="0.0" y="129" width="666" height="35"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adD-UD-SQd" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" red="0.1017271199" green="0.1017271199" blue="0.1017271199" alpha="0.75055416689999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="BJz-uy-irr"/>
+                                                    <constraint firstAttribute="height" constant="35" id="ZmE-gJ-pmo"/>
+                                                    <constraint firstAttribute="width" constant="150" id="jEO-ZM-Akp"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="tVG-FJ-s1S"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="7">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="ZmE-gJ-pmo"/>
+                                                        <exclude reference="jEO-ZM-Akp"/>
+                                                        <exclude reference="tVG-FJ-s1S"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <exclude reference="BJz-uy-irr"/>
+                                                        <include reference="ZmE-gJ-pmo"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact-widthClass=regular">
+                                                    <mask key="constraints">
+                                                        <exclude reference="BJz-uy-irr"/>
+                                                        <include reference="jEO-ZM-Akp"/>
+                                                        <include reference="tVG-FJ-s1S"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="printSevenOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WMo-JG-Dr8"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XW6-kd-evy" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="169" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" red="0.1017271199" green="0.1017271199" blue="0.1017271199" alpha="0.75055416689999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="8">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="printEightOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bqk-9G-hcY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljt-rf-iJW" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="338" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" red="0.1017271199" green="0.1017271199" blue="0.1017271199" alpha="0.75055416689999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="9">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="printNineOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0eq-mY-CnB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bw2-pT-vbe" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="507" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="35"/>
+                                                <state key="normal" title="+">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="additionOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HZI-jh-JHJ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Uja-Lw-fFz">
+                                        <rect key="frame" x="0.0" y="172" width="666" height="35"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVf-8j-uaS" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" red="0.1017271199" green="0.1017271199" blue="0.1017271199" alpha="0.75055416689999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="2fE-MX-Iue"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="232.5" id="9Z9-U2-wXf"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="TQb-Lu-QYz"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="Uq3-H3-xhu"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="vmP-in-0i5"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="xf5-lP-KPl"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title=".">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="2fE-MX-Iue"/>
+                                                        <exclude reference="9Z9-U2-wXf"/>
+                                                        <exclude reference="TQb-Lu-QYz"/>
+                                                        <exclude reference="Uq3-H3-xhu"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="TQb-Lu-QYz"/>
+                                                        <exclude reference="vmP-in-0i5"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact-widthClass=regular">
+                                                    <mask key="constraints">
+                                                        <include reference="2fE-MX-Iue"/>
+                                                        <include reference="Uq3-H3-xhu"/>
+                                                        <exclude reference="vmP-in-0i5"/>
+                                                        <exclude reference="xf5-lP-KPl"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <exclude reference="xf5-lP-KPl"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <mask key="constraints">
+                                                        <include reference="9Z9-U2-wXf"/>
+                                                        <exclude reference="xf5-lP-KPl"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="printPeriodOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J9P-C4-8Cp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZq-RO-L2e" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="169" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" red="0.1017271199" green="0.1017271199" blue="0.1017271199" alpha="0.75055416689999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="0">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="printZeroOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nkZ-tO-9gB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAd-1l-K28" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="338" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" red="0.1017271199" green="0.1017271199" blue="0.1017271199" alpha="0.75055416689999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <state key="normal" title="00">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="printDoubleZeroOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="th0-3r-HcF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvm-6D-7oG" customClass="RoundCornerButton" customModule="CoolCalc" customModuleProvider="target">
+                                                <rect key="frame" x="507" y="0.0" width="159" height="35"/>
+                                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="35"/>
+                                                <state key="normal" title="=">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="equalsOnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aBD-UZ-hNu"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVX-Lc-fDe">
+                                <rect key="frame" x="73" y="50.666666666666686" width="666" height="68.333333333333343"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="50"/>
+                                <color key="textColor" red="0.99655403389999997" green="1" blue="0.96421082960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gVX-Lc-fDe" firstAttribute="trailing" secondItem="XI5-cr-8FV" secondAttribute="trailing" id="5Sm-bW-vWK"/>
+                            <constraint firstItem="ohF-SK-NSh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="79O-9v-VgZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ohF-SK-NSh" secondAttribute="bottom" constant="65" id="7Yf-80-Uft"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ohF-SK-NSh" secondAttribute="bottom" constant="20" id="9Oc-IZ-WiX"/>
+                            <constraint firstItem="ohF-SK-NSh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="89" id="Ar5-qD-J52"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ohF-SK-NSh" secondAttribute="trailing" constant="89" id="DAR-wY-nZk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ohF-SK-NSh" secondAttribute="trailing" constant="31" id="Jzu-lh-69N"/>
+                            <constraint firstItem="ohF-SK-NSh" firstAttribute="top" secondItem="gVX-Lc-fDe" secondAttribute="bottom" constant="8" symbolic="YES" id="QI2-P9-uQv"/>
+                            <constraint firstItem="ohF-SK-NSh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Sit-xT-IfQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ohF-SK-NSh" secondAttribute="bottom" constant="20" id="TJL-6l-aAT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ohF-SK-NSh" secondAttribute="trailing" constant="29" id="VgX-6L-i2w"/>
+                            <constraint firstItem="ohF-SK-NSh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="bce-Th-dkH"/>
+                            <constraint firstItem="ohF-SK-NSh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="dSh-mX-lke"/>
+                            <constraint firstItem="gVX-Lc-fDe" firstAttribute="leading" secondItem="erf-zf-py6" secondAttribute="leading" id="e2b-1a-eV4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ohF-SK-NSh" secondAttribute="trailing" constant="32" id="huQ-Ly-1sT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ohF-SK-NSh" secondAttribute="bottom" constant="45" id="zJz-Ym-oZ5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9Oc-IZ-WiX"/>
+                                <exclude reference="DAR-wY-nZk"/>
+                                <exclude reference="Jzu-lh-69N"/>
+                                <exclude reference="TJL-6l-aAT"/>
+                                <exclude reference="Ar5-qD-J52"/>
+                                <exclude reference="Sit-xT-IfQ"/>
+                                <exclude reference="dSh-mX-lke"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="7Yf-80-Uft"/>
+                                <include reference="TJL-6l-aAT"/>
+                                <exclude reference="huQ-Ly-1sT"/>
+                                <exclude reference="zJz-Ym-oZ5"/>
+                                <exclude reference="79O-9v-VgZ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="7Yf-80-Uft"/>
+                                <include reference="DAR-wY-nZk"/>
+                                <exclude reference="VgX-6L-i2w"/>
+                                <exclude reference="huQ-Ly-1sT"/>
+                                <exclude reference="zJz-Ym-oZ5"/>
+                                <exclude reference="79O-9v-VgZ"/>
+                                <include reference="Ar5-qD-J52"/>
+                                <include reference="Sit-xT-IfQ"/>
+                                <exclude reference="bce-Th-dkH"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="7Yf-80-Uft"/>
+                                <include reference="9Oc-IZ-WiX"/>
+                                <exclude reference="huQ-Ly-1sT"/>
+                                <exclude reference="zJz-Ym-oZ5"/>
+                                <exclude reference="79O-9v-VgZ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="Jzu-lh-69N"/>
+                                <exclude reference="VgX-6L-i2w"/>
+                                <exclude reference="huQ-Ly-1sT"/>
+                                <exclude reference="zJz-Ym-oZ5"/>
+                                <exclude reference="79O-9v-VgZ"/>
+                                <exclude reference="bce-Th-dkH"/>
+                                <include reference="dSh-mX-lke"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="resultLbl" destination="gVX-Lc-fDe" id="ox9-Ff-PFw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="17.39130434782609" y="92.410714285714278"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
